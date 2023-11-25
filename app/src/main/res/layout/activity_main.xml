@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".view.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/color_bottom_nav_btn"
+        app:layout_constraintDimensionRatio="h,360:56"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <View
+            android:id="@+id/marginStart"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.044444" />
+
+        <ImageView
+            android:id="@+id/menu_icon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/menu_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="26:25"
+            app:layout_constraintStart_toEndOf="@+id/marginStart"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.0722" />
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/search_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="232:50"
+            app:layout_constraintEnd_toStartOf="@id/ic_notification"
+            app:layout_constraintStart_toEndOf="@+id/menu_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.64444" />
+
+        <View
+            android:id="@+id/marginEnd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.044444" />
+
+        <ImageView
+            android:id="@+id/ic_notification"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_notification"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="26:25"
+            app:layout_constraintEnd_toStartOf="@+id/marginEnd"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.0377" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-4dp"
+            android:background="@drawable/rounded_text_view_bg"
+            android:paddingHorizontal="2dp"
+            android:paddingVertical="1dp"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="5dp"
+            app:layout_constraintBottom_toTopOf="@id/ic_notification"
+            app:layout_constraintEnd_toEndOf="@+id/ic_notification" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topActionBar"
+        app:navGraph="@navigation/nav_graph" />
+
+    <com.sample.sampledemo.view.components.BottomNavigationCircles
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|bottom"
+        android:background="@color/color_bottom_nav_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_navigation_bar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
